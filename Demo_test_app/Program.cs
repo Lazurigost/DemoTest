@@ -1,19 +1,47 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
+using System.Text;
+using System.Net;
+using Demo_test_app.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
+{
+    opt.LoginPath = "/Home/LogInUser";
+    opt.LogoutPath = "/Home/LogOutUser";
+    opt.ExpireTimeSpan = TimeSpan.FromHours(1);
+    opt.Cookie.Name = "Cookie";
+});
+
+//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//.AddJwtBearer(opt =>
+//{
+//    var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
+//    opt.RequireHttpsMetadata = false;
+//    opt.SaveToken = true;
+//    opt.TokenValidationParameters = new()
+//    {
+//        ValidateIssuer = true,
+//        ValidateAudience = true,
+//        ValidateLifetime = true,
+//        ValidateIssuerSigningKey = true,
+//        ValidIssuer = jwtSettings.IsUser,
+//        ValidAudience = jwtSettings.Audience,
+//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecretKey))
+//    };
+//});
+
 builder.Services.AddAuthorization();
 
-//builder.Services.AddAuthorization(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
-//{
-//    opt.LoginPath = "/Home/LogInUser";
-//    opt.LogoutPath = "/Home/LogOutUser";
-//    opt.ExpireTimeSpan = TimeSpan.FromHours(1);
-//    opt.CookieName = "Cookie";
-//});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
