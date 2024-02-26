@@ -20,7 +20,7 @@
         <form asp-action="ApplicationAdd">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NameEquipment" class="control-label"></label>
+                <label asp-for="NameEquipment" class="control-label">Название оборудования</label>
                 <input asp-for="NameEquipment" class="form-control" />
                 <span asp-validation-for="NameEquipment" class="text-danger"></span>
             </div>
@@ -34,11 +34,6 @@
                 <span asp-validation-for="TypeProblemId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Comment" class="control-label"></label>
-                <input asp-for="Comment" class="form-control" />
-                <span asp-validation-for="Comment" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Status" class="control-label">Статус заказа</label>
                 <select asp-for="Status" class="form-select">
                     <option>выполнено</option>
@@ -48,17 +43,17 @@
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NameClient" class="control-label"></label>
+                <label asp-for="NameClient" class="control-label">ФИО Клиента</label>
                 <input asp-for="NameClient" class="form-control" />
                 <span asp-validation-for="NameClient" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cost" class="control-label"></label>
+                <label asp-for="Cost" class="control-label">Стоимость</label>
                 <input asp-for="Cost" class="form-control" />
                 <span asp-validation-for="Cost" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmployeeId" class="control-label">Назначенный работник</label><br />
+                <label asp-for="EmployeeId" class="control-label">Назначенный работник</label><br/>
                 <select asp-for="EmployeeId" class="form-select">
                     <option>TO 1</option>
                     <option>TO 2</option>
@@ -67,7 +62,7 @@
                 <span asp-validation-for="EmployeeId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TypeEquipmentId" class="control-label">Тип оборудования</label><br />
+                <label asp-for="TypeEquipmentId" class="control-label">Тип оборудования</label><br/>
                 <select asp-for="TypeEquipmentId" class="form-select">
                     <option>TO 1</option>
                     <option>TO 2</option>
@@ -76,12 +71,12 @@
                 <span asp-validation-for="TypeEquipmentId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Number" class="control-label"></label>
+                <label asp-for="Number" class="control-label">Серийный номер</label>
                 <input asp-for="Number" class="form-control" />
                 <span asp-validation-for="Number" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label asp-for="Description" class="control-label">Описание</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
