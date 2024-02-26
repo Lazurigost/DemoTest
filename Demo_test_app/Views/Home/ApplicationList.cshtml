@@ -91,12 +91,11 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Редактировать", "ApplicationEdit", new { id=item.Id }) |
+                @Html.ActionLink("Удалить", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
-}
+            }
     </tbody>
 </table>
 </body>

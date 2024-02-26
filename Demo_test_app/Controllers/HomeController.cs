@@ -30,9 +30,9 @@ namespace Demo_test_app.Controllers
         {
             return View();
         }
-        public IActionResult ApplicationEdit()
+        public IActionResult ApplicationEdit(int id)
         {
-            return View();
+            return View(id);
         }
         public IActionResult ApplicationEditemployee()
         {

@@ -1,9 +1,7 @@
 ﻿@model Demo_test_app.Models.Application
+
 @{
-    Layout = "_Layout";
-}
-@{
-    ViewData["Title"] = "Редактирование заявки";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -11,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>ApplicationEdit</title>
+    <title>ApplicationAdd</title>
 </head>
 <body>
 
@@ -19,10 +17,10 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="ApplicationEdit">
+        <form asp-action="ApplicationAdd">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NameEquipment" class="control-label">Название оборудования</label>
+                <label asp-for="NameEquipment" class="control-label"></label>
                 <input asp-for="NameEquipment" class="form-control" />
                 <span asp-validation-for="NameEquipment" class="text-danger"></span>
             </div>
@@ -36,7 +34,7 @@
                 <span asp-validation-for="TypeProblemId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Comment" class="control-label">Комментарий</label>
+                <label asp-for="Comment" class="control-label"></label>
                 <input asp-for="Comment" class="form-control" />
                 <span asp-validation-for="Comment" class="text-danger"></span>
             </div>
@@ -50,12 +48,12 @@
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NameClient" class="control-label">ФИО Клиента</label>
+                <label asp-for="NameClient" class="control-label"></label>
                 <input asp-for="NameClient" class="form-control" />
                 <span asp-validation-for="NameClient" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cost" class="control-label">Стоимость</label>
+                <label asp-for="Cost" class="control-label"></label>
                 <input asp-for="Cost" class="form-control" />
                 <span asp-validation-for="Cost" class="text-danger"></span>
             </div>
@@ -69,11 +67,6 @@
                 <span asp-validation-for="EmployeeId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="WorkStatus" class="control-label">Процесс работы</label>
-                <input asp-for="WorkStatus" class="form-control" />
-                <span asp-validation-for="WorkStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="TypeEquipmentId" class="control-label">Тип оборудования</label><br />
                 <select asp-for="TypeEquipmentId" class="form-select">
                     <option>TO 1</option>
@@ -83,24 +76,23 @@
                 <span asp-validation-for="TypeEquipmentId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Number" class="control-label">Серийный номер</label>
+                <label asp-for="Number" class="control-label"></label>
                 <input asp-for="Number" class="form-control" />
                 <span asp-validation-for="Number" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label">Описание</label>
+                <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Сохранить изменения" class="btn btn-primary" />
+                <input type="submit" value="Создать заявку" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 @section Scripts {
-   
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 </body>
