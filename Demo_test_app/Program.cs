@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using System.Text;
 using System.Net;
 using Demo_test_app.Models;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opt.ExpireTimeSpan = TimeSpan.FromHours(1);
     opt.Cookie.Name = "Cookie";
 });
+builder.Services.AddDbContext<ZayavkerBackContext>(options =>
+        options.UseMySql("server=localhost;port=3306;database=zayavker_back;user=root;password=XCR6hs2M", new MySqlServerVersion(new Version(8,0,11))));
 
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //.AddJwtBearer(opt =>

@@ -19,37 +19,37 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NameEquipment)
+                Название оборудования
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TypeProblemId)
+                Тип проблемы
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Comment)
+                Комментарий
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                Статус
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NameClient)
+                ФИО Клиента
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cost)
+                Стоимость
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmployeeId)
+                Исполнитель
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WorkStatus)
+                Этап выполнения
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TypeEquipmentId)
+                Тип оборудования
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Number)
+                Серийный номер
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Описание
             </th>
             <th></th>
         </tr>
@@ -61,7 +61,7 @@
                 @Html.DisplayFor(modelItem => item.NameEquipment)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TypeProblemId)
+                @Html.DisplayFor(modelItem => item.IdTypeProblem)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Comment)
@@ -76,13 +76,13 @@
                 @Html.DisplayFor(modelItem => item.Cost)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EmployeeId)
+                @Html.DisplayFor(modelItem => item.IdEmployeeNavigation.FullnameUser)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.WorkStatus)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TypeEquipmentId)
+                @Html.DisplayFor(modelItem => item.IdTypeEquipmentNavigation.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Number)
@@ -91,7 +91,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.ActionLink("Редактировать", "ApplicationEdit", new { id=item.Id }) |
+                @Html.ActionLink("Редактировать", "ApplicationEdit", new { id=item.IdApplication }) |
                 @Html.ActionLink("Удалить", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>

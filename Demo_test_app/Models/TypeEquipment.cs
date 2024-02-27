@@ -1,8 +1,13 @@
-﻿namespace Demo_test_app.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace Demo_test_app.Models;
+
+public partial class TypeEquipment
 {
-    public class TypeEquipment
-    {
-        public int Id { get; set; }
-        public string EquipmentName { get; set; }
-    }
+    public int IdTypeEquipment { get; set; }
+
+    public string? Name { get; set; }
+
+    public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
 }
