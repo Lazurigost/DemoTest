@@ -29,10 +29,11 @@
             <div class="form-group">
                     <label asp-for="IdTypeProblem" class="control-label">Тип проблемы</label><br />
                     <select asp-for="IdTypeProblem" class="form-select">
-                    <option>TO 1</option>
-                    <option>TO 2</option>
-                    <option>TO 3</option>
-                </select>
+                        @foreach (var stuff in Model.IdTypeEquipmentNavigation)
+                        {
+                            
+                        }
+                    </select>
                 <span asp-validation-for="IdTypeProblem" class="text-danger"></span>
             </div>
             <div class="form-group">

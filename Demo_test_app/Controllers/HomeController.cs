@@ -33,9 +33,9 @@ namespace Demo_test_app.Controllers
         {
             return View(await _context.Applications.ToListAsync());
         }
-        public IActionResult ApplicationEdit(int id)
+        public async Task<IActionResult> ApplicationEdit(int id)
         {
-            return View(id);
+            return View(await _context.Applications.Where(a => a.IdApplication == id).FirstOrDefaultAsync());
         }
         public IActionResult ApplicationEditemployee()
         {
@@ -48,6 +48,7 @@ namespace Demo_test_app.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
+
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
