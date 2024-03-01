@@ -5,7 +5,6 @@
 @{
     ViewData["Title"] = "Редактирование заявки";
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -29,9 +28,9 @@
             <div class="form-group">
                     <label asp-for="IdTypeProblem" class="control-label">Тип проблемы</label><br />
                     <select asp-for="IdTypeProblem" class="form-select">
-                        @foreach (var stuff in Model.IdTypeEquipmentNavigation)
+                        @foreach (var item in ViewBag.Problems)
                         {
-                            
+                            <option>@item.Name</option>
                         }
                     </select>
                 <span asp-validation-for="IdTypeProblem" class="text-danger"></span>

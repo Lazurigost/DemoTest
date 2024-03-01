@@ -1,4 +1,5 @@
 using Demo_test_app.Models;
+using Demo_test_app.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -35,6 +36,10 @@ namespace Demo_test_app.Controllers
         }
         public async Task<IActionResult> ApplicationEdit(int id)
         {
+            //var applic = await _context.Applications.Where(a => a.IdApplication == id).FirstOrDefaultAsync();
+            //var prob = await _context.TypeProblems.ToListAsync();
+            //var model = new EditViewModel { Application = applic, Problems = prob };
+            ViewBag.Problems = await _context.TypeProblems.ToListAsync();
             return View(await _context.Applications.Where(a => a.IdApplication == id).FirstOrDefaultAsync());
         }
         public IActionResult ApplicationEditemployee()
