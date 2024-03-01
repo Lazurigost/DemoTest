@@ -27,10 +27,10 @@
             </div>
             <div class="form-group">
                     <label asp-for="IdTypeProblem" class="control-label">Тип проблемы</label><br />
-                    <select asp-for="IdTypeProblem" class="form-select">
+                    <select asp-for="IdTypeProblem" class="form-select" >
                         @foreach (var item in ViewBag.Problems)
                         {
-                            <option>@item.Name</option>
+                            <option value="@item.IdTypeProblemt">@item.Name</option>
                         }
                     </select>
                 <span asp-validation-for="IdTypeProblem" class="text-danger"></span>
