@@ -40,6 +40,8 @@ namespace Demo_test_app.Controllers
             //var prob = await _context.TypeProblems.ToListAsync();
             //var model = new EditViewModel { Application = applic, Problems = prob };
             ViewBag.Problems = await _context.TypeProblems.ToListAsync();
+            ViewBag.Employees = await _context.Users.Where(r => r.Role == "Исполнитель").ToListAsync();
+            ViewBag.Equipment = await _context.TypeEquipments.ToListAsync();
             return View(await _context.Applications.Where(a => a.IdApplication == id).FirstOrDefaultAsync());
         }
         public IActionResult ApplicationEditemployee()
