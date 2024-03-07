@@ -44,6 +44,13 @@ namespace Demo_test_app.Controllers
             ViewBag.Equipment = await _context.TypeEquipments.ToListAsync();
             return View(await _context.Applications.Where(a => a.IdApplication == id).FirstOrDefaultAsync());
         }
+        [HttpPost]
+        public async Task<IActionResult> ConfirmEdit(Application appl)
+        {
+            await _context.Applications.AddAsync(appl);
+            await _context.SaveChangesAsync();
+            return await ApplicationList();
+        }
         public IActionResult ApplicationEditemployee()
         {
             return View();

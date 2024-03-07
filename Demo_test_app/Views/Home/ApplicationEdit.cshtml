@@ -18,7 +18,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="ApplicationEdit">
+        <form asp-action="ConfirmEdit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="NameEquipment" class="control-label">Название оборудования</label>
@@ -26,7 +26,7 @@
                 <span asp-validation-for="NameEquipment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdTypeProblem" class="control-label">Тип проблемы</label><br />
+                <label asp-for="IdTypeProblem" class="control-label">Тип проблемы</label><br/>
                 <select asp-for="IdTypeProblem" class="form-select" >
                     @foreach (var item in ViewBag.Problems)
                     {
@@ -60,7 +60,7 @@
                 <span asp-validation-for="Cost" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdEmployee" class="control-label">Назначенный работник</label><br />
+                <label asp-for="IdEmployee" class="control-label">Назначенный работник</label><br/>
                 <select asp-for="IdEmployee" class="form-select">
                     @foreach (var item in ViewBag.Employees)
                     {
@@ -71,11 +71,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="WorkStatus" class="control-label">Процесс работы</label>
-                <input asp-for="WorkStatus" class="form-control" />
+                <select asp-for="WorkStatus" class="form-control">
+                    <option value="выполнено">выполнено</option>
+                    <option value="в работе">в работе</option>
+                    <option value="в ожидании">в ожидании</option>
+                </select>
                 <span asp-validation-for="WorkStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdTypeEquipment" class="control-label">Тип оборудования</label><br />
+                <label asp-for="IdTypeEquipment" class="control-label">Тип оборудования</label><br/>
                 <select asp-for="IdTypeEquipment" class="form-select">
                     @foreach(var item in ViewBag.Equipment)
                         {
