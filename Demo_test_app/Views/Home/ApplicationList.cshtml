@@ -12,9 +12,22 @@
     <title>View</title>
 </head>
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    <div>
+        <div>
+            <label>Поиск: </label>
+            <input type="text" name="search"/>
+        </div>
+    </div>
+    @if(ViewBag.IsDisp != null)
+    {
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
+    else{
+        <p>Pashalka</p>
+    }
+    
     <table class="table">
     <thead>
         <tr>

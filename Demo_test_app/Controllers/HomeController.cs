@@ -65,5 +65,17 @@ namespace Demo_test_app.Controllers
 
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [HttpPost]
+        public async Task<IActionResult> Authorize(string Login, string Password)
+        {
+            User authed =  await _context.Users.Where(u => u.Login == Login && u.Password == Password).FirstOrDefaultAsync();
+            if (authed != null)
+            {
+                ViewBag.AuthedUser = authed;
+                if (authed.Role == "Диспетчер") ViewBag.IsDisp = true;
+                return Redirect("/Home/Index");
+            }
+            return View();
+        }
     }
 }
